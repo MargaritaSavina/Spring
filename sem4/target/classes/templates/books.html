@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>"Электронная Библиотека"</title>
+</head>
+<body>
+    <h1>Электронная Библиотека<span th:style="'color:'+'red'"></span>!</h1>
+
+<table>
+    <tr>
+        <th>Название книги</th>
+        <th>Автор</th>
+        <th>Год написания</th>
+    </tr>
+    <tr th:each="p: ${books}" >
+        <td th:text="${p.title}"></td>
+        <td th:text="${p.nameAuthor}"></td>
+        <td th:text="${p.year}"></td>
+    </tr>
+</table>
+
+<h2>Добавить книгу в библиотеку</h2>
+<form action="/books" method="post">
+    Название книги: <input type="text" name="title"><br />
+    Автор: <input type="text" name="nameAuthor"><br />
+    Год написания: <input type="number" step="any" name="year"><br />
+    <button type="submit">Добавить</button>
+</form>
+
+</body>
+</html>
